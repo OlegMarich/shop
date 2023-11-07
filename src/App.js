@@ -11,7 +11,7 @@ class App extends React.Component {
       { 
         id: 1,
         title:'Gray chair',
-        img: 'chair-gray.jpeg',
+        img: 'chair-grey.jpeg',
         desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
         category: 'chairs',
         price: '49.99'
@@ -19,7 +19,7 @@ class App extends React.Component {
       { 
         id: 2,
         title:'Table',
-        img: 'table.jpeg',
+        img: 'table.webp',
         desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
         category: 'tables',
         price: '149.99'

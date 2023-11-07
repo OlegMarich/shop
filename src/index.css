@@ -72,6 +72,10 @@ body {
 	flex-grow: 1;
 }
 
+header {
+	position: relative;
+}
+
 header .logo {
 	font-weight: 600;
 	font-size: 20px;
@@ -111,6 +115,84 @@ header .presentation::before {
 	color: #fff;
 }
 
+header .shop-cart-button {
+	float: right;
+	cursor: pointer;
+	margin-right: 15px;
+	transition: color, transform 500ms ease;
+}
+
+header .shop-cart-button:hover,
+header .shop-cart-button.active {
+	color: #dc3d3d;
+	transform: scale(1.5);
+}
+
+header .shop-cart {
+	position: absolute;
+	top: 50px;
+	right: 0;
+	width: 450px;	
+	height: 100px;
+	background: #ca5252;
+	box-shadow: 4px 5px 15px -7px #606060;
+	z-index: 1000;
+}
+
+main {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+main .item {
+	width: 30%;
+	margin-bottom: 50px;
+	background: #f5f5f5;
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 20px;
+}
+
+main .item img {
+	width: 100%;
+	border-radius: 10px 10px 0 0;
+	transition: transform 500ms ease;
+}
+
+main .item img:hover {
+	transform: scale(1.05);
+}
+
+main h2, main p, main b {
+	margin: 10px 20px;
+	color: #333;
+}
+
+main b {
+	color:#5fa35f;
+}
+
+main .add-to-cart {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	background: #ca5252;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	color: #fff;
+	border-radius: 50%;
+	font-weight: 600;
+	transition: transform 500ms ease;
+}
+
+main .add-to-cart:hover {
+	transform: scale(1.5) translateY(2px);
+}
+
 footer {
 	text-align: center;
 	margin-top: 100px;
@@ -123,7 +205,7 @@ footer {
 .menu__list {
 	display: flex;
 	gap: 25px;
-	
+
 }
 
 .menu__item:hover {
@@ -131,3 +213,4 @@ footer {
 	transition: opacity 0.3s ease 0s;
 
 }
+

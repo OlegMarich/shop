@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {BsFillCartPlusFill} from "react-icons/bs"
 
 export default function Header() {
+	let [cartOpen, setCartOpen] = useState(false)
 	return (
 		<header>
 			<div>
@@ -20,6 +22,11 @@ export default function Header() {
 							</li>
 						</ul>
 					</nav>
+					<BsFillCartPlusFill onClick={() => setCartOpen(cartOpen = !cartOpen)} className={`shop-cart-button ${cartOpen && 'active'}`}/>
+
+					{cartOpen && (
+						<div className='shop-cart'></div>
+					)}
 				</div>
 			</div>
 			<div className='presentation'></div>
