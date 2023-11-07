@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import Items from "./components/Items"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      items: [
+      { 
+        id: 1,
+        title:'Gray chair',
+        img: 'chair-gray.jpeg',
+        desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
+        category: 'chairs',
+        price: '49.99'
+      },
+      { 
+        id: 2,
+        title:'Table',
+        img: 'table.jpeg',
+        desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
+        category: 'tables',
+        price: '149.99'
+      },
+      { 
+        id: 3,
+        title:'Sofa',
+        img: 'sofa.jpeg',
+        desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
+        category: 'sofas',
+        price: '449.99'
+      },
+      {
+        id: 4,
+        title:'Wall light',
+        img: 'wall-light.jpeg',
+        desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
+        category: 'Lights',
+        price: '99.99'
+      }
+
+      ]
+    }
+  }
+  render() {
+    return (
+      <div className="wrapper">
+        <Header />
+        <Items items={this.state.items}/>
+        <Footer />
+      </div>
+    )
+  }
 }
 
 export default App;
