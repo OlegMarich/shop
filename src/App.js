@@ -7,51 +7,62 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      orders: [],
       items: [
-      { 
-        id: 1,
-        title:'Gray chair',
-        img: 'chair-grey.jpeg',
-        desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
-        category: 'chairs',
-        price: '49.99'
-      },
-      { 
-        id: 2,
-        title:'Table',
-        img: 'table.webp',
-        desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
-        category: 'tables',
-        price: '149.99'
-      },
-      { 
-        id: 3,
-        title:'Sofa',
-        img: 'sofa.jpeg',
-        desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
-        category: 'sofas',
-        price: '449.99'
-      },
-      {
-        id: 4,
-        title:'Wall light',
-        img: 'wall-light.jpeg',
-        desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
-        category: 'Lights',
-        price: '99.99'
-      }
+        {
+          id: 1,
+          title: 'Gray chair',
+          img: 'chair-grey.jpeg',
+          desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
+          category: 'chairs',
+          price: '49.99'
+        },
+        {
+          id: 2,
+          title: 'Table',
+          img: 'table.webp',
+          desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
+          category: 'tables',
+          price: '149.99'
+        },
+        {
+          id: 3,
+          title: 'Sofa',
+          img: 'sofa.jpeg',
+          desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
+          category: 'sofas',
+          price: '449.99'
+        },
+        {
+          id: 4,
+          title: 'Wall light',
+          img: 'wall-light.jpeg',
+          desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing',
+          category: 'Lights',
+          price: '99.99'
+        }
 
       ]
     }
+    this.addToOrder = this.addToOrder.bind(this)
   }
   render() {
     return (
       <div className="wrapper">
-        <Header />
-        <Items items={this.state.items}/>
+        <Header orders={this.state.orders} />
+        <Items items={this.state.items} onAdd={this.addToOrder} />
         <Footer />
       </div>
     )
+  }
+  addToOrder(item) {
+    let isInArray = false
+    this.setState.orders.forEach(el => {
+      if (el.id === item.id)
+        isInArray = true
+    })
+    if (!isInArray)
+      this.setState({ orders: [...this.state.orders, item] })
   }
 }
 
