@@ -3,11 +3,14 @@ import { BsFillCartPlusFill } from "react-icons/bs"
 import Order from './Order'
 
 const showOrders = (props) => {
+	let summa = 0 
+	props.orders.forEach(el => summa += Number.parseFloat(el.price));
 	return (
 		<div>
 			{props.orders.map(el => (
-				<Order key={el.id} item={el} />
+				<Order onDelete={props.onDelete} key={el.id} item={el} />
 			))}
+			<p className='total'>Total: {new Intl.NumberFormat().format(summa)}$</p>
 		</div>
 	)
 }
