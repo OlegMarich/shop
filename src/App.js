@@ -58,24 +58,24 @@ class App extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <Header orders={this.state.orders} onDelete={this.deleteOrder}/>
-        <Categories chooseCategory={this.chooseCategory}/>
+        <Header orders={this.state.orders} onDelete={this.deleteOrder} />
+        <Categories chooseCategory={this.chooseCategory} />
         <Items onShowItem={this.onShowItem} items={this.state.currentItems} onAdd={this.addToOrder} />
-        {this.state.showFullItem && <ShowFullItem item={this.state.fullItem}/>}
+        {this.state.showFullItem && <ShowFullItem onAdd={this.addToOrder} onShowItem={this.onShowItem} item={this.state.fullItem} />}
         <Footer />
       </div>
     )
   }
   onShowItem(item) {
-    this.setState({fullItem: item})
-    this.setState({showFullItem: !this.state.showFullItem})
+    this.setState({ fullItem: item })
+    this.setState({ showFullItem: !this.state.showFullItem })
   }
 
-  chooseCategory(category) { 
-  if(category === 'all') {
-    this.setState({currentItems: this.state.items})
-    return
-  }
+  chooseCategory(category) {
+    if (category === 'all') {
+      this.setState({ currentItems: this.state.items })
+      return
+    }
 
     this.setState({
       currentItems: this.state.items.filter(el => el.category === category)
@@ -83,7 +83,7 @@ class App extends React.Component {
   }
 
   deleteOrder(id) {
-    this.setState({orders: this.state.orders.filter(el => el.id !== id)})
+    this.setState({ orders: this.state.orders.filter(el => el.id !== id) })
   }
 
   addToOrder(item) {
